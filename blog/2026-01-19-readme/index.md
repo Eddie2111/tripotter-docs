@@ -5,3 +5,4 @@ tags: [hello]
 ---
 
 We will post updates in this section.
+<!-- truncate -->
