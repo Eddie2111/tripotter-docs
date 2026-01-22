@@ -1,0 +1,8 @@
+{
+  "label": "Tripotter Mobile",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "The mobile app of TripOtter."
+  }
+}

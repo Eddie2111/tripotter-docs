@@ -1,0 +1,8 @@
+{
+  "label": "TripOtter Market",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Marketplace backend of TripOtter."
+  }
+}

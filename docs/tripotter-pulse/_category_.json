@@ -1,0 +1,8 @@
+{
+  "label": "TripOtter Pulse",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Real time backend of TripOtter."
+  }
+}
