@@ -10,7 +10,10 @@ The authentication flow for **Tripotter Web** is powered by `Next-Auth`. It supp
 
 ```mermaid
   flowchart TD
-    Start([User Clicks 'Sign in with Google']) --> Redirect[Redirect to Google Consent]
+    Start([
+      User Clicks 
+      'Sign in with Google'
+    ]) --> Redirect[Redirect to Google Consent]
     Redirect --> Permission{Permission Granted?}
 
     Permission -- No --> Cancel([End: User Cancelled])
@@ -18,17 +21,29 @@ The authentication flow for **Tripotter Web** is powered by `Next-Auth`. It supp
 
     Profile --> SignInCB{User exists in DB?}
 
-    SignInCB -- No --> Create[Create New Record: UUID Pass + Serial]
+    SignInCB -- No --> Create[
+      Create New Record: 
+      UUID Pass + Serial
+    ]
     SignInCB -- Yes --> Continue[Continue Login]
 
     Create --> JWT
-    Continue --> JWT[JWT Callback: Attach Custom Fields]
+    Continue --> JWT[
+      JWT Callback: 
+      Attach Custom Fields
+    ]
 
-    JWT --> SessionCheck[Session Callback: Re-verify DB Status]
+    JWT --> SessionCheck[
+      Session Callback: 
+      Re-verify DB Status
+    ]
     SessionCheck --> IsActive{Is User Active?}
 
     IsActive -- No --> Deny[Return Empty Object/Deny]
-    IsActive -- Yes --> Success[Populate Session & Redirect]
+    IsActive -- Yes --> Success[
+      Populate Session & 
+      Redirect
+    ]
 
     Deny --> End([Access Blocked])
     Success --> Home([Home Page])
@@ -63,11 +78,20 @@ When a user clicks **"Sign in with Google"**, the following steps occur based on
     C -- No --> D[/Throw Error: 'No user found'/]
     C -- Yes --> E{Bcrypt Match?}
 
-    E -- No --> F[/Throw Error: 'Incorrect password'/]
+    E -- No --> F[
+      Throw Error: 
+      'Incorrect password'
+    ]
     E -- Yes --> G[Return User Object]
 
-    G --> H[JWT Callback: Persist Custom Fields]
-    H --> I[Session Callback: Final Security Check]
+    G --> H[
+      JWT Callback: 
+      Persist Custom Fields
+    ]
+    H --> I[
+      Session Callback: 
+      Final Security Check
+    ]
 
     I --> J{Is User Active?}
 
